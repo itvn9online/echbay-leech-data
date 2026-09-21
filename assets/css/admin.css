@@ -1,0 +1,109 @@
+.eld-wrap {
+	max-width: 1200px;
+}
+
+.eld-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: center;
+	margin: 12px 0 20px;
+	padding: 12px;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+}
+
+.eld-inline {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-right: 8px;
+}
+
+.eld-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+@media (max-width: 960px) {
+	.eld-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.eld-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 16px 18px 20px;
+	margin-bottom: 16px;
+}
+
+.eld-card h2 {
+	margin-top: 0;
+	font-size: 15px;
+}
+
+.eld-fields th {
+	width: 160px;
+	vertical-align: middle;
+}
+
+.eld-url-list {
+	max-height: 280px;
+	overflow: auto;
+	background: #f6f7f7;
+	padding: 8px 8px 8px 28px;
+	border-radius: 4px;
+}
+
+.eld-url-list.eld-done {
+	background: #edfaef;
+}
+
+.eld-url-list li {
+	margin: 4px 0;
+	word-break: break-all;
+}
+
+.eld-url-list li a {
+	cursor: pointer;
+}
+
+.eld-sandbox {
+	display: none;
+}
+
+.eld-log {
+	margin-top: 12px;
+	max-height: 200px;
+	overflow: auto;
+	font-family: Consolas, monospace;
+	font-size: 12px;
+	background: #1d2327;
+	color: #f0f0f1;
+	padding: 10px;
+	border-radius: 4px;
+}
+
+.eld-log .ok {
+	color: #68de7c;
+}
+
+.eld-log .err {
+	color: #ff8085;
+}
+
+.eld-status {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	background: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	padding: 8px 14px;
+	border-radius: 4px;
+	display: none;
+	z-index: 100000;
+}
