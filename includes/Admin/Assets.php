@@ -40,11 +40,13 @@ final class Assets
 			'eld-admin',
 			'ELD_ADMIN',
 			array(
-				'ajaxUrl' => admin_url('admin-ajax.php'),
-				'nonce'   => wp_create_nonce('eld_admin'),
-				'homeUrl' => home_url('/'),
-				'terms'   => Terms::for_js(),
-				'i18n'    => array(
+				'ajaxUrl'    => admin_url('admin-ajax.php'),
+				'pluginsUrl' => admin_url('plugins.php'),
+				'nonce'      => wp_create_nonce('eld_admin'),
+				'homeUrl'    => home_url('/'),
+				'version'    => ELD_VERSION,
+				'terms'      => Terms::for_js(),
+				'i18n'       => array(
 					'fetching'  => 'Đang tải HTML…',
 					'importing' => 'Đang import…',
 					'done'      => 'Hoàn thành',

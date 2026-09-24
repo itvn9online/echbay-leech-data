@@ -937,4 +937,64 @@
 		log('Đã nạp saved list vào queue', 'ok');
 		startAutoProcessIfEnabled();
 	});
+
+	$('#eld-check-update').on('click', function () {
+		var $button = $(this);
+		var $status = $('#eld-update-status');
+		var $info = $('#eld-update-info');
+		var $details = $('#eld-update-details');
+
+		$button.prop('disabled', true).text('Checking…');
+		$status.html('<span style="color:#666;">Đang kiểm tra cập nhật…</span>');
+		$info.hide();
+		$details.empty();
+
+		ajax('eld_check_update')
+			.done(function (res) {
+				if (!res || !res.success) {
+					var errMsg =
+						(res && res.data && res.data.message) || 'Không kiểm tra được cập nhật';
+					$status.html('<span style="color:#dc3545;">Error checking updates</span>');
+					$details.html('<p>' + errMsg + '</p>');
+					$info.show();
+					return;
+				}
+
+				var data = res.data || {};
+				if (data.has_update) {
+					$status.html(
+						'<span style="color:#d63384;"><strong>Update Available!</strong></span>'
+					);
+					$details.html(
+						'<p><strong>New Version:</strong> ' +
+							data.remote_version +
+							'</p>' +
+							'<p><a class="button button-primary" href="' +
+							(CFG.pluginsUrl || 'plugins.php') +
+							'" target="_blank">Go to Plugins page to update</a></p>' +
+							'<p style="color:#666;"><em>Bản cập nhật sẽ hiện trên trang Plugins của WordPress.</em></p>'
+					);
+				} else {
+					$status.html(
+						'<span style="color:#198754;"><strong>' +
+							(data.message || 'Up to date') +
+							'</strong></span>'
+					);
+					$details.html(
+						'<p>Current: ' +
+							(data.current_version || CFG.version || '') +
+							' · Remote: ' +
+							(data.remote_version || '') +
+							'</p>'
+					);
+				}
+				$info.show();
+			})
+			.fail(function () {
+				$status.html('<span style="color:#dc3545;">Unable to connect to GitHub</span>');
+			})
+			.always(function () {
+				$button.prop('disabled', false).text('Check for Updates');
+			});
+	});
 })(jQuery);

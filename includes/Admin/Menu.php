@@ -15,6 +15,7 @@ final class Menu
 	public function hooks()
 	{
 		add_action('admin_menu', array($this, 'register'));
+		add_filter('plugin_action_links_' . ELD_BASENAME, array($this, 'add_settings_link'));
 	}
 
 	public function register()
@@ -28,6 +29,20 @@ final class Menu
 			'dashicons-download',
 			58
 		);
+	}
+
+	/**
+	 * Thêm link Settings trên trang Plugins.
+	 *
+	 * @param string[] $links
+	 * @return string[]
+	 */
+	public function add_settings_link($links)
+	{
+		$url = admin_url('admin.php?page=echbay-leech-data');
+		$settings_link = '<a href="' . esc_url($url) . '">' . esc_html__('Settings', 'echbay-leech-data') . '</a>';
+		array_unshift($links, $settings_link);
+		return $links;
 	}
 
 	public function render()

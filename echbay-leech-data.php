@@ -15,7 +15,22 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-define('ELD_VERSION', '0.1.0');
+/**
+ * Read plugin version from VERSION or version.txt.
+ */
+function eld_get_plugin_version()
+{
+	foreach (array('VERSION', 'version.txt') as $version_file) {
+		$path = __DIR__ . '/' . $version_file;
+		if (is_readable($path)) {
+			return trim((string) file_get_contents($path));
+		}
+	}
+
+	return '0.0.0';
+}
+
+define('ELD_VERSION', eld_get_plugin_version());
 define('ELD_FILE', __FILE__);
 define('ELD_PATH', plugin_dir_path(__FILE__));
 define('ELD_URL', plugin_dir_url(__FILE__));

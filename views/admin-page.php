@@ -250,6 +250,20 @@ if (!defined('ABSPATH')) {
 		</p>
 	</section>
 
+	<section class="eld-card">
+		<h2>6. Plugin Updates</h2>
+		<div id="eld-update-section">
+			<p>
+				<button type="button" id="eld-check-update" class="button">Check for Updates</button>
+				<span id="eld-update-status" style="margin-left: 10px;"></span>
+			</p>
+			<div id="eld-update-info" style="display: none; margin-top: 10px; padding: 10px; border: 1px solid #ddd; background: #f9f9f9;">
+				<p><strong>Current Version:</strong> <?php echo esc_html(ELD_VERSION); ?></p>
+				<div id="eld-update-details"></div>
+			</div>
+		</div>
+	</section>
+
 	<div id="eld-html-sandbox" class="eld-sandbox" aria-hidden="true"></div>
 	<div id="eld-status" class="eld-status"></div>
 </div>
