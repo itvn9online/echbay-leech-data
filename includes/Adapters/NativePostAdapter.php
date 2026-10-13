@@ -5,6 +5,7 @@ namespace ELD\Adapters;
 use ELD\Services\Deduper;
 use ELD\Services\HtmlSanitizer;
 use ELD\Services\ImageImporter;
+use ELD\Support\DateParser;
 
 if (!defined('ABSPATH')) {
 	exit;
@@ -66,10 +67,10 @@ final class NativePostAdapter implements AdapterInterface
 		);
 
 		if (!empty($item['post_date'])) {
-			$ts = strtotime($item['post_date']);
-			if ($ts && $ts <= time()) {
-				$postarr['post_date'] = date('Y-m-d H:i:s', $ts);
-				$postarr['post_date_gmt'] = get_gmt_from_date($postarr['post_date']);
+			$post_date = DateParser::normalize($item['post_date']);
+			if ($post_date !== '' && $post_date <= current_time('mysql')) {
+				$postarr['post_date'] = $post_date;
+				$postarr['post_date_gmt'] = get_gmt_from_date($post_date);
 			}
 		}
 
