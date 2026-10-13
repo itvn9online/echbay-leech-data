@@ -30,6 +30,7 @@ if (!defined('ABSPATH')) {
 				<label>Selector list URL sản phẩm</label>
 				<input type="text" id="eld-list-selector" class="large-text" placeholder="#products li a.thumb" />
 			</p>
+			<p class="description">Cách lấy selector trên Chrome: mở trang nguồn → nhấn <kbd>F12</kbd> (DevTools) → tab <strong>Elements</strong> → chuột phải vào element cần lấy → <strong>Copy</strong> → <strong>Copy selector</strong>, rồi dán vào ô trên. Nên rút gọn selector (bỏ các <code>:nth-child()</code> không cần thiết) để áp dụng được cho nhiều phần tử.</p>
 			<p>
 				<label><input type="checkbox" id="eld-full-head" /> Lấy cả HEAD (mặc định chỉ BODY)</label>
 				<label><input type="checkbox" id="eld-convert-encoding" /> Convert encoding (GBK…)</label>
@@ -103,6 +104,7 @@ if (!defined('ABSPATH')) {
 
 	<section class="eld-card">
 		<h2>3. Selectors chi tiết (jQuery / CSS)</h2>
+		<p class="description">Cách lấy selector trên Chrome: mở trang chi tiết → nhấn <kbd>F12</kbd> (DevTools) → tab <strong>Elements</strong> → chuột phải vào element cần lấy → <strong>Copy</strong> → <strong>Copy selector</strong>, rồi dán vào ô tương ứng bên dưới. Nên rút gọn selector (bỏ các <code>:nth-child()</code> không cần thiết) để dùng được cho mọi trang cùng mẫu.</p>
 		<p class="description">Hỗ trợ <code>&&</code> (ghép), <code>,</code> (ưu tiên), <code>:each</code> / <code>:eachn</code>, và <code>img[data-src]</code> cho attr tùy chỉnh.</p>
 		<table class="widefat eld-fields">
 			<tbody>
