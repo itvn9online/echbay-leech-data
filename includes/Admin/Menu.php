@@ -20,14 +20,13 @@ final class Menu
 
 	public function register()
 	{
-		add_menu_page(
+		add_submenu_page(
+			'tools.php',
 			'EchBay Leech Data',
 			'Leech Data',
 			Capabilities::CAP,
 			'echbay-leech-data',
-			array($this, 'render'),
-			'dashicons-download',
-			58
+			array($this, 'render')
 		);
 	}
 
@@ -39,7 +38,7 @@ final class Menu
 	 */
 	public function add_settings_link($links)
 	{
-		$url = admin_url('admin.php?page=echbay-leech-data');
+		$url = admin_url('tools.php?page=echbay-leech-data');
 		$settings_link = '<a href="' . esc_url($url) . '">' . esc_html__('Settings', 'echbay-leech-data') . '</a>';
 		array_unshift($links, $settings_link);
 		return $links;

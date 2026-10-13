@@ -17,7 +17,7 @@ final class Assets
 
 	public function enqueue($hook)
 	{
-		if ($hook !== 'toplevel_page_echbay-leech-data') {
+		if ($hook !== 'tools_page_echbay-leech-data') {
 			return;
 		}
 

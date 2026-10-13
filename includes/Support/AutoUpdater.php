@@ -172,7 +172,7 @@ final class AutoUpdater
 			'short_description' => 'Import / crawl content from remote HTML sites into WordPress posts.',
 			'sections'          => array(
 				'Description'   => 'Import nội dung HTML từ website khác vào WordPress (post / product).',
-				'Installation'  => 'Upload plugin và activate. Vào menu Leech Data để sử dụng.',
+				'Installation'  => 'Upload plugin và activate. Vào Tools → Leech Data để sử dụng.',
 				'Changelog'     => $this->get_changelog(),
 			),
 			'download_link'     => $this->github_download_url,
